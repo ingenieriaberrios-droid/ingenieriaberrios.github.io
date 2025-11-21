@@ -1,128 +1,263 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ingeniería y Transporte Berrios García</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ingeniería y Transporte Berrios García SpA</title>
 
-        body {
-            background: #0f172a;
-            color: #e5e7eb;
-            line-height: 1.6;
-        }
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.4);
-            padding: 1rem;
-        }
+<style>
+    body {
+        margin: 0;
+        background: #0a0a0a;
+        font-family: 'Poppins', sans-serif;
+        color: #e8e8e8;
+        scroll-behavior: smooth;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 1rem;
-        }
+    /* NAVBAR */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.85);
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid #222;
+    }
+    .navbar h1 {
+        color: #d4af37;
+        font-size: 24px;
+        margin: 0;
+    }
+    .navbar a {
+        color: white;
+        margin-left: 25px;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    .navbar a:hover {
+        color: #d4af37;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            color: #38bdf8;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+    /* HEADER */
+    header {
+        padding: 160px 20px 120px;
+        text-align: center;
+        background: linear-gradient(to bottom, #141414, #0a0a0a);
+    }
 
-        h2 {
-            margin-top: 2rem;
-            color: #38bdf8;
-        }
+    header h2 {
+        font-size: 45px;
+        margin-bottom: 15px;
+        color: #d4af37;
+        animation: fadeIn 1.5s ease;
+    }
 
-        .gallery {
-            margin-top: 1.5rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.2rem;
-        }
+    header p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: auto;
+        opacity: 0.8;
+        animation: fadeIn 2s ease;
+    }
 
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-            border: 2px solid #1e293b;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        }
+    /* SECCIONES */
+    section {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 0;
+    }
 
-        footer {
-            margin-top: 3rem;
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid #1e293b;
-        }
+    h3 {
+        color: #d4af37;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
 
-        .contacto {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-        }
+    p, li {
+        font-size: 18px;
+    }
 
-        .whatsapp-btn {
-            display: inline-block;
-            background: #22c55e;
-            padding: 0.8rem 1.5rem;
-            color: white;
-            font-weight: bold;
-            border-radius: 10px;
-            margin-top: 1rem;
-            text-decoration: none;
-        }
-    </style>
+    .lista {
+        margin-left: 20px;
+    }
 
+    /* GALERÍA */
+    .galeria {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .galeria img {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid #d4af37;
+        transition: transform 0.3s ease;
+    }
+
+    .galeria img:hover {
+        transform: scale(1.06);
+    }
+
+    /* FORMULARIO COTIZA */
+    .form-box {
+        background: #111;
+        padding: 30px;
+        border-radius: 12px;
+        border: 2px solid #d4af37;
+        max-width: 600px;
+        margin: auto;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 6px;
+        border: 1px solid #333;
+        background: #1a1a1a;
+        color: white;
+        font-size: 16px;
+    }
+
+    button {
+        margin-top: 15px;
+        width: 100%;
+        padding: 14px;
+        background: #d4af37;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    button:hover {
+        background: #b8922a;
+    }
+
+    /* WHATSAPP FIXED BUTTON */
+    .whatsapp-btn {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        z-index: 10000;
+    }
+
+    .whatsapp-btn img {
+        width: 70px;
+        transition: 0.3s;
+    }
+
+    .whatsapp-btn img:hover {
+        transform: scale(1.1);
+    }
+
+    /* ANIMACIONES */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        header h2 { font-size: 32px; }
+        .navbar { padding: 10px 20px; }
+        .navbar h1 { font-size: 18px; }
+        .navbar a { margin-left: 12px; }
+    }
+</style>
 </head>
 
+
 <body>
-    <header>
-        <h1>Ingeniería y Transporte Berrios García Spa</h1>
-    </header>
 
-    <div class="container">
-
-        <h2>Nuestros Trabajos</h2>
-
-        <div class="gallery">
-
-            <!-- NUEVAS FOTOS AGREGADAS -->
-            <img src="terraza.jpg" alt="Terraza metálica">
-            <img src="silla.jpg" alt="Silla de fierro moderna">
-            <img src="comedor.jpg" alt="Comedor estructura metálica">
-            <img src="barra.jpg" alt="Mesa barra de fierro">
-
-            <!-- (AQUÍ QUEDAN TODAS LAS FOTOS BUENAS QUE YA TENÍAS) -->
-            <!-- Si hay fotos que quieras borrar avísame y las saco sin tocar el resto -->
-        </div>
-
-        <div class="contacto">
-            <p>Contáctanos para trabajos en estructuras metálicas, cobertizos, terrazas, rejas y proyectos eléctricos BT.</p>
-            <p><strong>Teléfono / WhatsApp:</strong> +56 9 3294 4781</p>
-
-            <a class="whatsapp-btn" href="https://wa.me/56932944781" target="_blank">
-                Escribir por WhatsApp
-            </a>
-        </div>
-
+<!-- NAVBAR -->
+<div class="navbar">
+    <h1>Ingeniería Berrios</h1>
+    <div>
+        <a href="#quienes">Quiénes Somos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#cotiza">Cotiza</a>
+        <a href="#contacto">Contacto</a>
     </div>
+</div>
 
-    <footer>
-        © 2025 Ingeniería y Transporte Berrios García Spa
-    </footer>
+<!-- HEADER -->
+<header>
+    <h2>Ingeniería y Transporte Berrios García SpA</h2>
+    <p>Soluciones profesionales en estructuras metálicas, mobiliario industrial, proyectos eléctricos BT y transporte especializado. Calidad premium y cumplimiento garantizado.</p>
+</header>
+
+<!-- QUIENES SOMOS -->
+<section id="quienes">
+    <h3>Quiénes Somos</h3>
+    <p>Somos una empresa especializada en estructuras metálicas, muebles industriales y proyectos eléctricos BT, combinando ingeniería, diseño y fabricación de alto estándar. Nuestro enfoque es simple: calidad, seguridad y soluciones a medida.</p>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+    <h3>Servicios</h3>
+
+    <ul class="lista">
+        <li>Estructuras metálicas premium</li>
+        <li>Mobiliario industrial y diseño personalizado</li>
+        <li>Instalaciones eléctricas BT certificadas</li>
+        <li>Transporte y traslado de estructuras</li>
+    </ul>
+</section>
+
+<!-- TRABAJOS -->
+<section id="trabajos">
+    <h3>Trabajos Realizados</h3>
+
+    <div class="galeria">
+        <img src="IMG1.jpg">
+        <img src="IMG2.jpg">
+        <img src="IMG3.jpg">
+        <img src="IMG4.jpg">
+    </div>
+</section>
+
+<!-- COTIZA AHORA -->
+<section id="cotiza">
+    <h3>Cotiza Ahora</h3>
+    <div class="form-box">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Teléfono o WhatsApp">
+        <textarea rows="5" placeholder="Cuéntanos qué necesitas"></textarea>
+        <button>Enviar Cotización</button>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <h3>Contacto</h3>
+    <p><strong>WhatsApp:</strong> +56 9 3294 4781</p>
+    <p><strong>Correo:</strong> berriosgarcia.ingetrans@gmail.com</p>
+    <p>Región Metropolitana – Atención en terreno según proyecto.</p>
+</section>
+
+<!-- WHATSAPP BUTTON -->
+<div class="whatsapp-btn">
+    <a href="https://wa.me/56932944781" target="_blank">
+        <img src="https://i.imgur.com/ryESuZ5.png">
+    </a>
+</div>
 
 </body>
-
 </html>
